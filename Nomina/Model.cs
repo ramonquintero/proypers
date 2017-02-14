@@ -300,5 +300,24 @@ namespace Nomina
         }
 
         #endregion municipio
+
+        #region calendario
+
+        public bool existe_feriado(DateTime fecha)
+        {
+            return db.existe_feriado(fecha);
+        }
+
+        public void agregar_feriado(DateTime fecha, string descripcion)
+        {
+            db.agregar_feriado(fecha, descripcion);
+        }
+
+        public void borrar_feriado(DateTime fecha)
+        {
+            db.borrar_feriado(fecha);
+        }
+
+        #endregion calendario
     }
 }

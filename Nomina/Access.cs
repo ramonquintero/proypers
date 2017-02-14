@@ -1642,5 +1642,89 @@ namespace Nomina
 
         #endregion fichadeltrabajador
 
+        #region calendario
+
+        public bool existe_feriado(DateTime fecha)
+        {
+            bool res = false;
+            DataSet oDs;
+            OleDbConnection oConn =
+                    new System.Data.OleDb.OleDbConnection(stringdeconexion);
+
+            string sql = "SELECT dia ";
+            sql += "FROM Calendario ";
+            sql += "WHERE dia=#" + fecha.Year.ToString() + "/" + fecha.Month.ToString() + "/" + fecha.Day.ToString() + "#";
+
+
+            OleDbDataAdapter oCmd = new OleDbDataAdapter(sql, oConn);
+            oConn.Open();
+            oDs = new DataSet();
+            oCmd.Fill(oDs);
+            oConn.Close();
+            Application.DoEvents();
+            res = (oDs.Tables[0].Rows.Count > 0);
+
+            return res;
+        }
+
+        public void agregar_feriado(DateTime fecha, string descripcion)
+        {
+            if (!existe_feriado(fecha))
+            {
+
+                OleDbConnection conn;
+                DataSet oDs;
+                conn = new OleDbConnection(stringdeconexion);
+                conn.Open();
+                String sql;
+                int id = 0;
+
+
+                sql = "INSERT INTO calendario ";
+                sql += " (dia,descripcion) VALUES (#";
+                sql += fecha.Year.ToString() + "/" + fecha.Month.ToString() + "/" + fecha.Day.ToString() + "#,'"+descripcion+"')";
+                Application.DoEvents();
+                try
+                {
+                    using (OleDbCommand cmd = new OleDbCommand(sql, conn))
+                    {
+                        cmd.ExecuteNonQuery();
+                        Application.DoEvents();
+                    }
+                    conn.Close();
+                }
+                catch (Exception ex) { }
+            }
+        }
+
+        public void borrar_feriado(DateTime fecha)
+        {
+            if (existe_feriado(fecha))
+            {
+
+                OleDbConnection conn;
+                conn = new OleDbConnection(stringdeconexion);
+                conn.Open();
+                String sql;
+                
+                sql = "DELETE FROM calendario ";
+                sql += " WHERE dia= #";
+                sql += fecha.Year.ToString() + "/" + fecha.Month.ToString() + "/" + fecha.Day.ToString() + "# ";
+                Application.DoEvents();
+                try
+                {
+                    using (OleDbCommand cmd = new OleDbCommand(sql, conn))
+                    {
+                        cmd.ExecuteNonQuery();
+                        Application.DoEvents();
+                    }
+                    conn.Close();
+                }
+                catch (Exception ex) { }
+            }
+        }
+
+        #endregion calendario
+
     }
 }

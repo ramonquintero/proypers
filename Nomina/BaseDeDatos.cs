@@ -83,5 +83,9 @@ namespace Nomina
             string cedula, int sexo, int edocivil, string telefonos, int pais, int estado, int municipio,
             string direccion, int statustrabajador, int departamento, int cargo, string fingreso,
             string fegreso, int tiponomina, string salario, DataGridView dt);
+
+        bool existe_feriado(DateTime fecha);
+        void agregar_feriado(DateTime fecha, string descripcion);
+        void borrar_feriado(DateTime fecha);
     }
 }
