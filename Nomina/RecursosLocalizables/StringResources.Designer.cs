@@ -142,6 +142,15 @@ namespace Nomina.RecursosLocalizables {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a F&amp;icha de Empresa.
+        /// </summary>
+        internal static string sub_15 {
+            get {
+                return ResourceManager.GetString("sub_15", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a &amp;Estado Civil.
         /// </summary>
         internal static string sub_21 {

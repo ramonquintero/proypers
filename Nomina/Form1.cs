@@ -68,6 +68,12 @@ namespace Nomina
                 form.MdiParent = this;
                 form.Show();
             }
+            if (eleccion.Equals("F&icha de Empresa"))
+            {
+                FichaDeEmpresa form = new FichaDeEmpresa(baseDeDatos);
+                form.MdiParent = this;
+                form.Show();
+            }
             if (eleccion.Equals("&Periodo"))
             {
                 Periodo form = new Periodo();

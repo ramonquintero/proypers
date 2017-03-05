@@ -32,6 +32,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Calendar.NET, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\Calendar.NET.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -98,6 +102,12 @@
     </Compile>
     <Compile Include="EstadoTrabajador.Designer.cs">
       <DependentUpon>EstadoTrabajador.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FichaDeEmpresa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FichaDeEmpresa.Designer.cs">
+      <DependentUpon>FichaDeEmpresa.cs</DependentUpon>
     </Compile>
     <Compile Include="FichaDelTrabajador.cs">
       <SubType>Form</SubType>
@@ -195,6 +205,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="EstadoTrabajador.resx">
       <DependentUpon>EstadoTrabajador.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FichaDeEmpresa.resx">
+      <DependentUpon>FichaDeEmpresa.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FichaDelTrabajador.resx">
       <DependentUpon>FichaDelTrabajador.cs</DependentUpon>

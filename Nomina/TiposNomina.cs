@@ -84,8 +84,12 @@ namespace Nomina
             imgEspere1.Width = this.Width;
             imgEspere1.Height = this.Height;
 
-            dataGridView1.Columns[0].Width = (this.Width / 2) - 40;
-            dataGridView1.Columns[1].Width = (this.Width / 2) - 40;
+            try
+            {
+                dataGridView1.Columns[0].Width = (this.Width / 2) - 40;
+                dataGridView1.Columns[1].Width = (this.Width / 2) - 40;
+            }
+            catch (Exception ex) { }
         }
     }
 }
